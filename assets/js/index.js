@@ -1,25 +1,28 @@
 
 
 $(document).ready(function(){ 
-  //  setInterval(getData , 1000);
-   getData();
+   setInterval(updateData, 1000);
+  //  console.log(PageMethods.getData());
+    
 });
 
-function getData() {
+
+function updateData() {
     $.ajax({
-        type: "GET",
-        url: "getdata.aspx",
-        contentType: "application/json",
-        dataType: "text",
-        processdata: true,
+        type: "POST",
+        url: "index.aspx/getData",
+        data:"{'x':'getData'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
         success: function (msg) {
-            console.log("success " + msg);
+            update(msg.d);
         },
         error: function (result) {
-            console.log("error" + result.statusText + result.status);
+            alert('error ' + result.statusText + result.status);
         }
     });
 }
+
 
 function puton() {
     $.ajax({
@@ -55,14 +58,12 @@ function putoff() {
 
 
 function update(m) {
-   
-
-    console.log("data" + m);
+       
     var l = m.split(" ");
     $("#currentTemp").html(l[0]);
     
     x = $($(".temps")[0]).html();
-    $($(".temps")[0]).html('<p class="temps">Light Temp: <span >' + l[0] + '</span> <span><i class="glyphicon glyphicon-star"></i> </span></p>' + x);
+    $($(".temps")[0]).html('<p style="font-size:small" class="temps">'+new Date().toGMTString().substring(5)+': <span >' + l[0] + '</span> deg...</p>' + x);
 
     var status = l[1] * 1;
 

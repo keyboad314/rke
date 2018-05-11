@@ -99,7 +99,9 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="setdata.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="access.svc.cs">

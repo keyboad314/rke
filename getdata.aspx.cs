@@ -18,7 +18,7 @@ namespace RkePractical
             else
             {
                 Response.Clear();
-                List<string> vals = lines[0].Split(' ').ToList();
+                List<string> vals = lines[0].Trim().Split(' ').ToList();
                 if (vals[vals.Count - 1] == "" | vals[vals.Count - 1] == " ")
                     vals.RemoveAt(vals.Count - 1);
                 string m = "";

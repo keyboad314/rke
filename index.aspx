@@ -13,6 +13,15 @@
 </head>
 
 <body>
+
+
+
+    <form runat="server" id="form1">
+
+    
+
+    <asp:LinkButton ID="LinkButton1" runat="server"></asp:LinkButton>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" EnablePartialRendering="true" ></asp:ScriptManager>
     <div id="main" class="container">
         <div class="jumbotron">
             <h1>RKE Practical 4</h1>
@@ -21,10 +30,11 @@
             <div>
                 <p>Current Light Temp <span id="currentTemp"></span> </p>
                 <div class="col-md-6 datas">
-                    <p class="">Temperatures <span >Temp </span><span id="temparature"><i class="glyphicon glyphicon-star"></i> </span></p>
+                    <p class="">Light Intensities</p>
                      
-
-                    <p class="temps"></p>
+                    <div style="height:300px;overflow-y:scroll">
+                            <p  class="temps"></p>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <button onclick="puton()" class="btn btn-success btn-lg btn_data" type="button" id="btnOn">Turn ON</button>
@@ -33,6 +43,8 @@
             </div>
         </div>
     </div>
+
+   </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/index.js"></script>

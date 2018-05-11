@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
-using System.ServiceModel.Web;
+
 using System.Text;
 
 namespace RkePractical
@@ -25,7 +25,7 @@ namespace RkePractical
             return;
         }
 
-        [WebGet]
+        [System.ServiceModel.Web.WebGet]
         public string getData()
         {
             string k = "";
@@ -36,7 +36,7 @@ namespace RkePractical
             else
             {
 
-                List<string> vals = lines[0].Split(' ').ToList();
+                List<string> vals = lines[0].Trim().Split(' ').ToList();
                 if (vals[vals.Count - 1] == "" | vals[vals.Count - 1] == " ")
                     vals.RemoveAt(vals.Count - 1);
                 string m = "";
